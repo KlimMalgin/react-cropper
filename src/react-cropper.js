@@ -7,6 +7,7 @@ const optionProps = [
   'dragMode',
   'aspectRatio',
   'data',
+  'clear',
   // unchangeable props start from here
   'viewMode',
   'preview',
@@ -64,6 +65,9 @@ class ReactCropper extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.src !== this.props.src) {
       this.cropper.reset().clear().replace(nextProps.src);
+    }
+    if (nextProps.clear !== this.props.clear) {
+      this.cropper.clear();
     }
     if (nextProps.aspectRatio !== this.props.aspectRatio) {
       this.setAspectRatio(nextProps.aspectRatio);
@@ -259,7 +263,7 @@ ReactCropper.propTypes = {
   crossOrigin: PropTypes.string,
   src: PropTypes.string,
   alt: PropTypes.string,
-
+  clear: PropTypes.number,
   // props of option can be changed after componentDidmount
   aspectRatio: PropTypes.number,
   dragMode: PropTypes.oneOf(['crop', 'move', 'none']),
