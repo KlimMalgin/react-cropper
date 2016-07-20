@@ -47,7 +47,7 @@ const optionProps = [
   'zoom',
 ];
 
-const unchangeableProps = optionProps.slice(3);
+const unchangeableProps = optionProps.slice(4);
 
 class ReactCropper extends Component {
 
